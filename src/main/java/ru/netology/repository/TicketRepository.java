@@ -1,4 +1,7 @@
-package ru.netology;
+package ru.netology.repository;
+
+import ru.netology.domain.NotFoundException;
+import ru.netology.domain.Ticket;
 
 public class TicketRepository {
     private Ticket[] tickets = new Ticket[0];
@@ -18,7 +21,7 @@ public class TicketRepository {
 
     public void removeById(int id) {
         if (findById(id) == null) {
-            throw new NotFoundException ("Element with id: " + id + " not found");
+            throw new NotFoundException("Element with id: " + id + " not found");
         } else {
             int length = tickets.length - 1;
             Ticket[] tmp = new Ticket[length];
